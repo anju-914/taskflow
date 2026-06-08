@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-900: #0d0d1a;
+  --navy-800: #1a1a2e;
+  --navy-700: #16213e;
+  --navy-600: #0f3460;
+  --gold-300: #f5d58a;
+  --gold-400: #e2b96f;
+  --gold-500: #c99a3e;
+  --surface: #1e1e35;
+  --surface-hover: #252542;
+  --border: rgba(226, 185, 111, 0.15);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-900); }
+::-webkit-scrollbar-thumb { background: var(--navy-600); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-500); }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.glass-card {
+  background: rgba(30, 30, 53, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.priority-high   { @apply bg-red-500/20 text-red-300 border border-red-500/30; }
+.priority-medium { @apply bg-amber-500/20 text-amber-300 border border-amber-500/30; }
+.priority-low    { @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30; }
+
+.status-pending     { @apply bg-slate-500/20 text-slate-300 border border-slate-500/30; }
+.status-in_progress { @apply bg-blue-500/20 text-blue-300 border border-blue-500/30; }
+.status-completed   { @apply bg-emerald-500/20 text-emerald-300 border border-emerald-500/30; }
+
+.btn-gold {
+  @apply bg-gold-400 hover:bg-gold-300 text-navy-900 font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 flex items-center gap-2 cursor-pointer;
+}
+
+.btn-ghost {
+  @apply border border-white/10 hover:border-gold-400/40 hover:bg-white/5 text-white/70 hover:text-white px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-2 cursor-pointer;
+}
+
+@layer utilities {
+  .text-gold { color: var(--gold-400); }
+  .bg-surface { background: var(--surface); }
+  .border-gold { border-color: var(--border); }
+}
