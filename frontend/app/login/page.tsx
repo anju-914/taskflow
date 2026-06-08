@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 
 export default function LoginPage() {
   const { session, loading, signInWithGoogle } = useAuth();
   const router = useRouter();
-  const params = useSearchParams();
-  const error = params.get("error");
 
   useEffect(() => {
     if (!loading && session) {
@@ -65,11 +63,6 @@ export default function LoginPage() {
             Sign in to manage your tasks and collaborate with your team.
           </p>
 
-          {error && (
-            <div className="mb-6 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300 text-sm">
-              Authentication failed. Please try again.
-            </div>
-          )}
 
           {/* Google OAuth Button */}
           <button
