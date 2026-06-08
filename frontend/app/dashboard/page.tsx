@@ -70,7 +70,7 @@ export default function DashboardPage() {
               Dashboard
             </h1>
             <p className="text-white/40 text-sm mt-1">
-              Manage and track your team's tasks
+               Manage and track your team&#39;s tasks
             </p>
           </div>
           <button onClick={() => setShowModal(true)} className="btn-gold">
