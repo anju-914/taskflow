@@ -185,8 +185,12 @@ export default function DashboardPage() {
               <TaskCard
                 key={task.id}
                 task={task}
-                onStatusChange={(status) => updateTask(task.id, { status })}
-                onDelete={() => deleteTask(task.id)}
+                onStatusChange={async (status) => {
+                  await updateTask(task.id, { status });
+                }}
+                onDelete={async () => {
+                  await deleteTask(task.id);
+                }}
                 currentUserId={session.user.id}
               />
             ))}
